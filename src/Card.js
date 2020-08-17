@@ -2,6 +2,7 @@ import React from 'react';
 import './Card.css';
 
 function Cards(props) {
+    //console.log(props)
     return (
         <div className="Card">
             <button
