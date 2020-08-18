@@ -6,8 +6,15 @@ import renderer from 'react-test-renderer';
 describe('list component', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<List />, div);
+        ReactDOM.render(<List header="test-header" cards={[]} content=""/>, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 });
+
+it('renders the UI as expected', () => {
+    const tree = renderer
+      .create(<List header="test-header" cards={[]} content=""/>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();  
+    });
 
